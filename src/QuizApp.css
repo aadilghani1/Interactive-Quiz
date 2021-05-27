@@ -11,11 +11,10 @@
   justify-content: space-evenly;
 }
 
-.score-section {
+/* .score-section {
   display: flex;
-  font-size: 24px;
   align-items: center;
-}
+} */
 
 .question-section {
   width: 100%;
