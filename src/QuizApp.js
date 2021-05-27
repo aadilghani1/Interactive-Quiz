@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 import "./QuizApp.css";
 function QuizApp() {
   const questions = [
@@ -49,6 +50,7 @@ function QuizApp() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
+  const history = useHistory();
   const handleAnswerOption = (isCorrect, answerText) => {
     // if (isCorrect) {
     //   setScore(score + 1);
@@ -97,8 +99,17 @@ function QuizApp() {
   return (
     <div className="quiz--app">
       {showScore ? (
-        <div className="score-section text-white font-semibold animate-bounce flex justify-center">
-          You scored {score} out of {questions.length}
+        <div className=" text-white h-full flex flex-col items-center justify-between">
+          <h1 className="text-3xl font-semibold animate-bounce">
+            {" "}
+            You scored {score} out of {questions.length}
+          </h1>
+          <button
+            onClick={() => history.push("/leaderboard")}
+            className="  focus:outline-none border-solid border-blue-200 hover:bg-white hover:text-gray-600  border-2 py-1 px-5 rounded-lg"
+          >
+            Leader Board
+          </button>
         </div>
       ) : (
         <>
